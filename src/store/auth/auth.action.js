@@ -14,6 +14,7 @@ export const signInAction = (data) => {
         })
         try {
             const result = await authService(data)
+            console.log('##### RESULT: ', result.data.data)
 
             if (result.data) {
                 saveAuth(result.data?.data)

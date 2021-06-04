@@ -4,10 +4,11 @@ import store from '../store'
 import { logoutAction } from '../store/auth/auth.action'
 
 const { REACT_APP_VERSION: version, REACT_APP_API: api } = process.env
-const urlApi = api + Version
+const urlApi = api + version
+
 
 const http = axios.create({
-    baseUrl: urlApi
+    baseURL: urlApi
 })
 
 http.defaults.headers['content-type'] = 'application/json'
@@ -17,7 +18,7 @@ if (getToken()) {
 
 http.interceptors.response.use(
     (response) => response,
-    error => {
+    (error) => {
         switch (error.response.status) {
             case 401:
                 store.dispatch(logoutAction())

@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from './Button'
 
-const CardSignIn = () => {
+const CardSignIn = ({ change, form, submit, ...props }) => {
     return (
-        <Card className='text-center'>
+        <Card className='text-center col-12 col-md-8 col-lg-5'>
             <p>Login</p>
             {/* <hr /> */}
             <form>
-                <input type="text" name="email" placeholder="E-mail" />
-                <input type="password" name="password" placeholder="Senha" />
+                <input value={form.email || ''} type="text" name="email" placeholder="E-mail" onChange={change} />
+                <input value={form.senha || ''} type="password" name="senha" placeholder="Senha" onChange={change} />
             </form>
-            <Button text="Entrar" />
-
+            <_Button onClick={submit}>
+                Entrar
+            </_Button> 
         </Card>
     )
 }
@@ -21,7 +21,7 @@ export default CardSignIn
 
 const Card = styled.div`
     background-color: ${(props) => props.theme.colors.offwhite};
-    width: 30vw;
+    /* width: 30vw; */
     border: 1px solid;
     box-shadow: 4px 4px 8px rgba(0,0,0,.5);
     padding-bottom: 3rem;
@@ -49,4 +49,15 @@ const Card = styled.div`
         }
     }
     
+`
+
+const _Button = styled.button`
+    background-color: ${(props) => props.theme.colors.primary};
+    padding: .6rem 0;
+    width: 84%;
+    color: ${(props) => props.theme.colors.offwhite};
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: .1rem;
+    cursor: pointer;
 `
