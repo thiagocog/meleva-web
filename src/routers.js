@@ -14,7 +14,7 @@ import SignIn from './views/auth/signin'
 // PRIVAÇÃO DE ROTA
 const PrivateRoute = ({ component: Component, ...rest }) => {
     if (!isAuthenticated()) {
-        return <Redirect to='/signin' noTthrow />
+        return <Redirect to='/signin' noThrow />
     } else {
         return <Component {...rest} />
     }

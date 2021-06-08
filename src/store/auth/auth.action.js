@@ -26,7 +26,11 @@ export const signInAction = (data) => {
                 data: result.data?.data
             })
 
-            navigate('/dash')
+            if (result.data.data.usuarioDTO.tipoUsuario === 3) {
+                navigate('/')
+            } else {
+                navigate('/dash')
+            }
 
         } catch (error) {
             dispatch({

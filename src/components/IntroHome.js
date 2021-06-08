@@ -20,7 +20,7 @@ const BoxIntro = styled.section`
 `
 
 const TitleStyle = styled.h1`
-    font-size: 7rem;
+    font-size: 8rem;
     letter-spacing: 0.25rem;
     text-transform: uppercase;
     color: ${(props) => props.theme.colors.primary};
@@ -28,7 +28,7 @@ const TitleStyle = styled.h1`
 
 const SubTitleStyle = styled.p`
     font-family: 'Comfortaa', cursive;
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     letter-spacing: 0.15rem;
     text-transform: uppercase;
     color: ${(props) => props.theme.colors.gray};
