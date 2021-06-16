@@ -10,7 +10,6 @@ import Fornecedor from './fornecedor'
 // import Cliente from './cliente/'
 
 
-
 // 1 - Administrador
 // 2 - Fornecedor
 // 3 - Cliente
@@ -32,7 +31,7 @@ export const Menu = [
         visibleMenu: true,
         enabled: true,
         // component: Categoria,
-        authorization: [2]
+        authorization: [1]
     },
     {
         title: 'Produtos',
@@ -41,7 +40,7 @@ export const Menu = [
         visibleMenu: true,
         enabled: true,
         // component: Produto,
-        authorization: [2]
+        authorization: [1, 2]
     },
     {
         title: 'Cliente',
@@ -50,7 +49,7 @@ export const Menu = [
         visibleMenu: true,
         enabled: true,
         // component: Cliente,
-        authorization: [2]
+        authorization: [1, 2]
     }
 ]
 

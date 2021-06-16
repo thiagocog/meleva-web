@@ -6,8 +6,9 @@ import DashControl from './DashControl'
 const DashLayout = ({ children }) => {
     return (
         <BoxDash>
-            <DashControl />
-            <main>{children}</main>          
+            <DashControl>
+                <main>{children}</main>  
+            </DashControl>
         </BoxDash>
     )
 }
