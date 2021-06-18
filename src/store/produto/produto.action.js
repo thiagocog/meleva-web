@@ -42,11 +42,11 @@ export const create = (data) => {
 }
 
 
-export const getAll = () => {
+export const getAll = (query = null) => {
     return async (dispatch) => {
         try {
             dispatch({ type: TYPES.PRODUTO_LOADING, status: true })
-            const result = await getAllProduto()
+            const result = await getAllProduto(query)
             dispatch({ type: TYPES.PRODUTO_ALL, data: result.data.data })
         } catch (error) {
             toastr.error('Aconteceu um erro ao listar todos os produtos', error)

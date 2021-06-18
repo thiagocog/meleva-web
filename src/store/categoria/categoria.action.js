@@ -43,6 +43,7 @@ export const create = (data) => {
 }
 
 
+
 export const edit = (id) => {
     return async (dispatch) => {
         dispatch({ type: TYPES.CATEGORY_UPLOAD, upload: 0 })
@@ -67,6 +68,7 @@ export const getAll = () => {
         }
     }
 }
+
 
 
 export const update = ({ id, ...data }) => {
@@ -94,14 +96,19 @@ export const update = ({ id, ...data }) => {
                 dispatch(edit(id))
                 dispatch(getAll())
                 toastr.success('Categoria', 'Categoria atualizada com sucesso')
-                dispatch({ type: TYPES.CATEGORY_UPLOAD })
+                return true
             })
             .catch((error) => {
+                dispatch({ type: TYPES.CATEGORY_LOADING, status: false })
                 dispatch({ type: TYPES.SIGN_ERROR, data: error })
                 toastr.error('Categoria', error.toString())
             })
+            .finally(() => {
+                dispatch({ type: TYPES.CATEGORY_LOADING, status: false })
+            })
     }
 }
+
 
 
 export const remove = (id) => {

@@ -4,8 +4,10 @@ import {
     getById as getFornecedorById,
     update as updateFornecedor,
     remove as removeFornecedor,
+    obterListadeProduto,
     ativarFornecedor,
-    inativaFornecedor
+    inativaFornecedor,
+    likeProdutoService
 } from '../../services/fornecedor.service'
 import TYPES from '../types'
 import { toastr } from 'react-redux-toastr'
@@ -128,6 +130,30 @@ export const setStatusFornecedor = (id, ativo) => {
             dispatch({ type: TYPES.FORNECEDOR_ALL, data: [...all] })
         } catch (error) {
             console.log('###', err)
+        }
+    }
+}
+
+
+export const obterProduto = (id) => {
+    return async (dispatch) => {
+        try {
+            const result = await obterListadeProduto(id)
+            dispatch({ type: TYPES.FORNECEDOR_PRODUTOS, data: result.data.data })
+        } catch (error) {
+            toastr.error('Fornecedor', 'Erro ao carregar produtos')
+        }
+    }
+}
+
+
+export const likeProduto = ({ nome, fornecedorId }) => {
+    return async (dispatch) => {
+        try {
+            const result = await likeProdutoService(fornecedorId)
+            toastr.success('Curtida', `O produto ${nome} foi curtido com sucesso.`)
+        } catch (error) {
+            toastr.error('Curtida', 'Erro ao curtir o produto')
         }
     }
 }

@@ -4,7 +4,8 @@ const INITIAL_STATE = {
     loading: false,
     all: [],
     upload: {},
-    selected: {}
+    selected: {},
+    produtos: []
 }
 
 
@@ -24,6 +25,9 @@ const reducer = (state = INITIAL_STATE, action) => {
             return state
         case TYPES.FORNECEDOR_UPLOAD:
             state.upload = action.upload
+            return state
+        case TYPES.FORNECEDOR_PRODUTOS:
+            state.produtos = action.data
             return state
         case TYPES.FORNECEDOR_CREATE:
             state.loading = false

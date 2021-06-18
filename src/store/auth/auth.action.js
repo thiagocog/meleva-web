@@ -1,5 +1,5 @@
 import { navigate } from '@reach/router'
-import { removeToken, saveAuth } from '../../config/storage'
+import { clearStorage, saveAuth } from '../../config/storage'
 import { authService } from '../../services/auth.service'
 import http from '../../config/http'
 import TYPES from '../types'
@@ -37,6 +37,7 @@ export const signInAction = (data) => {
                 type: TYPES.SIGN_ERROR,
                 data: error
             })
+            navigate('/signin')
         }
     }
 
@@ -44,7 +45,7 @@ export const signInAction = (data) => {
 
 export const logoutAction = (data) => {
     return async (dispatch) => {
-        removeToken()
+        clearStorage()
         dispatch({
             type: TYPES.SIGN_OUT
         })

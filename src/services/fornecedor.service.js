@@ -19,3 +19,7 @@ export const create = (data) => http.post(baseUrl, data)
 export const ativarFornecedor = (id) => http.put(`${baseUrl}/${id}/ativa`)
 
 export const inativaFornecedor = (id) => http.put(`${baseUrl}/${id}/inativa`)
+
+export const obterListadeProduto = (id) => http.get(`${baseUrl}/${id}/produto`)
+
+export const likeProdutoService = (idFornecedor) => http.post(`${baseUrl}/${idFornecedor}/curtidas`)

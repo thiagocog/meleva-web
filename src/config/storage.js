@@ -29,7 +29,7 @@ const isAuthenticated = () => {
     return getToken() !== false
 }
 
-const removeToken = () => {
+const clearStorage = () => {
     return localStorage.removeItem(TOKEN_KEY)
 }
 
@@ -42,6 +42,6 @@ export {
     getToken,
     getUser, 
     isAuthenticated,
-    removeToken,
+    clearStorage,
     saveAuth
 }
