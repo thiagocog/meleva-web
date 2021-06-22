@@ -8,6 +8,7 @@ import { isAuthenticated } from './config/storage'
 import Portal from './views/portal/'
 import Dashboard from './views/dashboard/'
 import SignIn from './views/auth/signin'
+import SignUpFornecedor from './views/auth/fornecedor_novo'
 // -----------
 
 
@@ -26,6 +27,7 @@ const Routers = () => {
     return (
         <Router>
             <SignIn path='/signin' />
+            <SignUpFornecedor path='/fornecedor_novo' />
 
             <Portal path='/*' />
 

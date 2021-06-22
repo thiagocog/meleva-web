@@ -129,7 +129,7 @@ export const setStatusFornecedor = (id, ativo) => {
             all[index].status = result.data.data.status
             dispatch({ type: TYPES.FORNECEDOR_ALL, data: [...all] })
         } catch (error) {
-            console.log('###', err)
+            console.log('###', error)
         }
     }
 }

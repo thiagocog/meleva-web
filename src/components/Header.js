@@ -33,7 +33,7 @@ const Header = (props) => {
                             <_NavLink tag={Link} to="/">Home</_NavLink>
                         </NavItem>
                         <NavItem>
-                            <_NavLink tag={Link} to="/">Seja um fornecedor</_NavLink>
+                            <_NavLink tag={Link} to="fornecedor_novo">Seja um fornecedor</_NavLink>
                         </NavItem>
                         <NavItem>
                             <_NavLink className='login' tag={Link} to="signin">Login</_NavLink>
