@@ -9,6 +9,7 @@ import Portal from './views/portal/'
 import Dashboard from './views/dashboard/'
 import SignIn from './views/auth/signin'
 import SignUpFornecedor from './views/auth/fornecedor_novo'
+import SignUpCliente from './views/auth/cliente_novo'
 // -----------
 
 
@@ -27,6 +28,7 @@ const Routers = () => {
     return (
         <Router>
             <SignIn path='/signin' />
+            <SignUpCliente path='/cliente_novo' />
             <SignUpFornecedor path='/fornecedor_novo' />
 
             <Portal path='/*' />

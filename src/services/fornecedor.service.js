@@ -23,3 +23,5 @@ export const inativaFornecedor = (id) => http.put(`${baseUrl}/${id}/inativa`)
 export const obterListadeProduto = (id) => http.get(`${baseUrl}/${id}/produto`)
 
 export const likeProdutoService = (idFornecedor) => http.post(`${baseUrl}/${idFornecedor}/curtidas`)
+
+export const removeProduto = (idFornecedor, produtoId) => http.delete(`${baseUrl}/${idFornecedor}/produto/${produtoId}`)

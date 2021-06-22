@@ -11,7 +11,7 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import Routers from './routers'
 import reportWebVitals from './reportWebVitals';
 import store from './store'
-// import ReduxToastr from './components/redux-toastr'
+import ReduxToastr from './components/redux-toastr'
 import theme from './config/theme'
 import GlobalStyle from './config/globalStyle'
 
@@ -23,7 +23,7 @@ const googleFont = 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,
 // RENDERIZAÇÃO DA APLICAÇÃO
 ReactDOM.render(
   <Provider store={store}>
-    {/* <ReduxToastr /> */}
+    {/* <ReduxToastr /> TÁ DANDO ERRO, NÃO SEI PQ */}
     <Helmet>
       <link rel="stylesheet" href={googleFont} />
     </Helmet>

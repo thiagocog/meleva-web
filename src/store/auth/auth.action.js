@@ -3,45 +3,42 @@ import { clearStorage, saveAuth } from '../../config/storage'
 import { authService } from '../../services/auth.service'
 import http from '../../config/http'
 import TYPES from '../types'
+import { toastr } from 'react-redux-toastr'
 
 
 export const signInAction = (data) => {
 
-    return async (dispatch) => {
+    return (dispatch) => {
         dispatch({
             type: TYPES.SIGN_LOADING,
             status: true
         })
-        try {
-            const result = await authService(data)
-            console.log('##### RESULT: ', result.data.data)
-
-            if (result.data) {
-                saveAuth(result.data?.data)
-                http.defaults.headers.token = result.data.data.token
-            }
-            
-            dispatch({
-                type: TYPES.SIGN_IN,
-                data: result.data?.data
+        authService(data)
+            .then((result) => {
+                if (result.data) {
+                    saveAuth(result.data?.data)
+                    http.defaults.headers.token = result.data.data.token
+                }
+                dispatch({
+                    type: TYPES.SIGN_IN,
+                    data: result.data?.data
+                })
+                if (result.data.data.usuarioDTO.tipoUsuario === 3) {
+                    navigate('/')
+                } else {
+                    navigate('/dash')
+                }
             })
-
-            if (result.data.data.usuarioDTO.tipoUsuario === 3) {
-                navigate('/')
-            } else {
-                navigate('/dash')
-            }
-
-        } catch (error) {
-            dispatch({
-                type: TYPES.SIGN_ERROR,
-                data: error
+            .catch((error) => {
+                dispatch({
+                    type: TYPES.SIGN_ERROR,
+                    data: error
+                })
+                toastr.error('Login', error.response?.data?.mensagem || 'Erro ao tentar fazer login')
             })
-            navigate('/signin')
-        }
     }
-
 }
+
 
 export const logoutAction = (data) => {
     return async (dispatch) => {
