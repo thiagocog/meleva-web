@@ -35,12 +35,18 @@ const Header = (props) => {
                         <NavItem>
                             <_NavLink tag={Link} to="fornecedor_novo">Seja um fornecedor</_NavLink>
                         </NavItem>
+
+                        {!isAuthenticated() && (
+                        <>
                         <NavItem>
                             <_NavLink tag={Link} to="cliente_novo">Cadastre-se</_NavLink>
                         </NavItem>
                         <NavItem>
                             <_NavLink className='login' tag={Link} to="signin">Login</_NavLink>
-                        </NavItem>
+                        </NavItem> </> )}
+
+
+
                     </Nav>
                 </_Collapse>
             </_Navbar>

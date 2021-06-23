@@ -1,4 +1,4 @@
-const TOKEN_KEY = process.env.REACT_APP_TOKEN_KEY
+const TOKEN_KEY = process.env.REACT_APP_STORAGE_KEY || 'gestao_meleva'
 
 
 const getToken = () => {

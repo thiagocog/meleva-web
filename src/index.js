@@ -23,7 +23,7 @@ const googleFont = 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,
 // RENDERIZAÇÃO DA APLICAÇÃO
 ReactDOM.render(
   <Provider store={store}>
-    {/* <ReduxToastr /> TÁ DANDO ERRO, NÃO SEI PQ */}
+    <ReduxToastr />
     <Helmet>
       <link rel="stylesheet" href={googleFont} />
     </Helmet>

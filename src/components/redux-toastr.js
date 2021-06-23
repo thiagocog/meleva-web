@@ -1,6 +1,6 @@
 import ReduxToastr from 'react-redux-toastr'
 
-const Toastr = () => {
+const Toastr = () =>
     <ReduxToastr
         timeout={6000}
         newestOnTop={false}
@@ -12,6 +12,5 @@ const Toastr = () => {
         progressBar
         closeOnToastrClick
     />
-}
 
 export default Toastr

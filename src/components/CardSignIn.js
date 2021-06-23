@@ -5,7 +5,6 @@ const CardSignIn = ({ change, form, submit, ...props }) => {
     return (
         <Card className='text-center col-12 col-md-8 col-lg-5'>
             <p>Login</p>
-            {/* <hr /> */}
             <form>
                 <input value={form.email || ''} type="text" name="email" placeholder="E-mail" onChange={change} />
                 <input value={form.senha || ''} type="password" name="senha" placeholder="Senha" onChange={change} />

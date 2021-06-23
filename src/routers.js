@@ -27,9 +27,9 @@ const Routers = () => {
 
     return (
         <Router>
-            <SignIn path='/signin' />
-            <SignUpCliente path='/cliente_novo' />
-            <SignUpFornecedor path='/fornecedor_novo' />
+            <SignIn path='signin' />
+            <SignUpCliente path='cliente_novo' />
+            <SignUpFornecedor path='fornecedor_novo' />
 
             <Portal path='/*' />
 

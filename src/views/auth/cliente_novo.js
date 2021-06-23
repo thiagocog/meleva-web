@@ -118,7 +118,7 @@ const ClienteNovo = () => {
                         disabled={loading}
                         onChange={handleChange}
                     />
-                    <_Button disabled={loading} onClick={submitForm}>
+                    <_Button type='button' disabled={loading} onClick={submitForm}>
                         Cadastrar-se
                     </_Button> 
                 </form>
