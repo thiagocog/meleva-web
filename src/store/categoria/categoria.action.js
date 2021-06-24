@@ -62,6 +62,9 @@ export const getAll = () => {
         try {
             dispatch({ type: TYPES.CATEGORY_LOADING, status: true })
             const result = await getAllCategories()
+
+            console.log('CATEGORIAS ACTION: ' + result.data.data)
+            
             dispatch({ type: TYPES.CATEGORY_ALL, data: result.data.data })
         } catch (error) {
             toastr.error('aconteceu um erro', error)

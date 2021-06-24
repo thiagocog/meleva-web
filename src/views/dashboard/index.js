@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 import DashLayout from '../../components/DashLayout'
 import Fornecedor from './fornecedor'
-// import Categoria from './categoria/'
+import Categoria from './categoria'
 // import Produto from './produto/'
 // import Cliente from './cliente/'
 
@@ -30,7 +30,7 @@ export const Menu = [
         route: '/categoria',
         visibleMenu: true,
         enabled: true,
-        // component: Categoria,
+        component: Categoria,
         authorization: [1]
     },
     {

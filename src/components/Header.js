@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from '@reach/router'
+import { useDispatch, useSelector } from 'react-redux';
 import {
     Collapse,
     Navbar,
@@ -8,14 +9,25 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink,
+    UncontrolledDropdown, 
+    DropdownToggle, 
+    DropdownMenu, 
+    DropdownItem
 } from 'reactstrap';
 
 import { isAuthenticated } from '../config/storage'
+import { logoutAction } from '../store/auth/auth.action'
 
 
 
 const Header = (props) => {
+    const dispatch = useDispatch()
+    const nomeUsuario = useSelector((state) => state.auth.user.nome)
+
+    const logout = () => {
+        dispatch(logoutAction())
+    }
 
     const [isOpen, setIsOpen] = React.useState(false)
 
@@ -36,14 +48,24 @@ const Header = (props) => {
                             <_NavLink tag={Link} to="fornecedor_novo">Seja um fornecedor</_NavLink>
                         </NavItem>
 
-                        {!isAuthenticated() && (
+                        {!isAuthenticated() ? (
                         <>
-                        <NavItem>
-                            <_NavLink tag={Link} to="cliente_novo">Cadastre-se</_NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <_NavLink className='login' tag={Link} to="signin">Login</_NavLink>
-                        </NavItem> </> )}
+                            <NavItem>
+                                <_NavLink tag={Link} to="cliente_novo">Cadastre-se</_NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <_NavLink className='login' tag={Link} to="signin">Login</_NavLink>
+                            </NavItem> 
+                        </>) : 
+                            <_UncontrolledDropdown setActiveFromChild>
+                                <DropdownToggle tag="a" className="nav-link" caret>
+                                    {nomeUsuario}
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    <DropdownItem active onClick={logout}>Sair</DropdownItem>
+                                </DropdownMenu>
+                            </_UncontrolledDropdown>
+                        }
 
 
 
@@ -112,4 +134,9 @@ const _NavLink = styled(NavLink)`
             border-bottom-color: tomato;
         }
     }
+`
+
+const _UncontrolledDropdown = styled(UncontrolledDropdown)`
+    margin-left: 40px;
+    cursor: pointer;
 `

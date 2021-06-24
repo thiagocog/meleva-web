@@ -1,4 +1,5 @@
 import TYPES from '../types'
+import { getAll } from './categoria.action'
 
 const INITIAL_STATE = {
     loading: false,
