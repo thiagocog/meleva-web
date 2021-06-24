@@ -1,8 +1,10 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
 import styled from 'styled-components'
 
 import CategoryTable from '../../components/CategoryTable'
+import FormCategory from '../../components/FormCategory'
 import { 
     getAll as getCategories,
     edit as editCategory,
@@ -66,13 +68,24 @@ const Categoria = () => {
 
 
     return (
-        <Box>
-            <div className="control">
-                <h4>Categorias</h4>
-                <div>{actions()}</div>
+        <>
+            <Box>
+                <div className="control">
+                    <h4>Categorias</h4>
+                    <div>{actions()}</div>
+                </div>
+                <CategoryTable categorias={categorias} loading={loading} modal={toggleModal} />
+            </Box>
+
+            <div>
+                <Modal isOpen={modal.status || false} toggle={closeModal}>
+                    <ModalHeader toggle={closeModal}>Categoria</ModalHeader>
+                    <ModalBody>
+                        <FormCategory submit={submitForm} />
+                    </ModalBody>
+                </Modal>
             </div>
-            <CategoryTable categorias={categorias} loading={loading} />
-        </Box>
+        </>
     )
 }
 

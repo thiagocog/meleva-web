@@ -3,7 +3,7 @@ import { Table } from 'reactstrap';
 
 
 
-const CategoryTable = ({ categorias, modal, loading }, ...props) => {
+const CategoryTable = ({ categorias, modal, loading, ...props }) => {
 
   const actions = ({ id }) => {
     return (
@@ -12,7 +12,6 @@ const CategoryTable = ({ categorias, modal, loading }, ...props) => {
       </>
     )
   }
-
 
 
   return (
