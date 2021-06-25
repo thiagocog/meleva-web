@@ -81,7 +81,7 @@ const DashHeader = styled.header`
 const Nav = styled.div`
     position: fixed;
     left: 0;
-    height: 100vh;
+    min-height: 100vh;
     width: 16vw;
     background-color: ${(props) => props.theme.colors.secondary};
     transition: 0.5s;
@@ -92,7 +92,7 @@ const Nav = styled.div`
 `
 
 const ChildrenDash = styled.div`
-    height: 90vh;
+    min-height: 90vh;
     margin-left: 16vw;
     transition: 0.5s;
 

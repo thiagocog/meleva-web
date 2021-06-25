@@ -58,11 +58,11 @@ const FormCategory = ({ submit, ...props }) => {
 
 
     return (
-        <div>
+        <Content>
             {preview.length > 0 ?
             (
-                <div sm={2} md={2} xl={2}>
-                    <img src={preview} />
+                <div sm={1} md={1} xl={1}>
+                    <Image src={preview} />
                     <button onClick={removeImage}>Remover</button>
                 </div>
             ) : (
@@ -91,6 +91,7 @@ const FormCategory = ({ submit, ...props }) => {
                 id="descricao" 
                 cols="20" 
                 rows="5"
+                placeholder='Descrição'
                 required
                 disabled={loading}
                 onChange={handleChange}
@@ -112,8 +113,50 @@ const FormCategory = ({ submit, ...props }) => {
                 {isEdit ? 'Atualizar' : 'Enviar'}
             </button>
 
-        </div>
+        </Content>
     )
 }
 
 export default FormCategory
+
+
+const Image = styled.img`
+  max-width: 170px;
+  max-height: 170px;
+  margin: 10px;
+  border: thin solid #eee;
+  border-radius: 3px;
+  overflow: hidden;
+`
+
+const Content = styled.div`
+    input {
+        background-color: ${(props) => props.theme.colors.offwhite};
+        display: block;
+        font-size: .9rem;
+        padding: 0 6px;
+        margin: 12px auto;
+        width: 84%;
+        height: 40px;
+        border-bottom: 2px solid ${(props) => props.theme.colors.secondary};
+
+        ::placeholder {
+            color: ${(props) => props.theme.colors.gray};
+        }
+    }
+
+    textarea {
+        background-color: ${(props) => props.theme.colors.offwhite};
+        display: block;
+        font-size: .9rem;
+        padding: 0 6px;
+        margin: 12px auto;
+        width: 84%;
+        height: 80px;
+        border-bottom: 2px solid ${(props) => props.theme.colors.secondary};
+
+        ::placeholder {
+            color: ${(props) => props.theme.colors.gray};
+        }
+    }
+`

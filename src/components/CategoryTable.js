@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'reactstrap';
+import styled from 'styled-components';
 
 
 
@@ -30,7 +31,7 @@ const CategoryTable = ({ categorias, modal, loading, ...props }) => {
           <tr key={i}>
             <td>{categoria.status.toString()}</td>
             <td>{categoria.nome}</td>
-            <td><img src={categoria.imagem} /></td>
+            <td><_img src={process.env.REACT_APP_API + categoria.imagem} /></td>
             <td>{categoria.nome}</td>
           </tr>
         ))}
@@ -40,3 +41,10 @@ const CategoryTable = ({ categorias, modal, loading, ...props }) => {
 }
 
 export default CategoryTable;
+
+
+
+const _img = styled.img`
+  max-width: 80px;
+  max-height: 80px;
+`
