@@ -1,6 +1,6 @@
 import React from 'react';
-import { Table } from 'reactstrap';
-import styled from 'styled-components';
+import { Table } from 'reactstrap'
+import styled from 'styled-components'
 
 
 

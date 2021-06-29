@@ -66,16 +66,20 @@ const FormCategory = ({ submit, ...props }) => {
                     <button onClick={removeImage}>Remover</button>
                 </div>
             ) : (
-                <button>
-                    Upload Foto
+                <>
+                <p>Upload Foto</p>
+                
+                    {/* Upload Foto */}
                     <input
                         // accept='image/*'
+                        className="input-foto"
                         type='file'
                         name='imagem'
                         // hidden
                         onChange={previewImg}
                     />
-                </button>
+                
+                </>
             )}
             <input
                 required
@@ -97,21 +101,23 @@ const FormCategory = ({ submit, ...props }) => {
                 onChange={handleChange}
                 value={form.descricao || ''}
             ></textarea>
-            <div class="form-check form-switch">
-                <input 
-                    className="form-check-input" 
-                    type="checkbox" 
-                    id="flexSwitchCheckChecked" 
-                    checked={form.status}
-                    onChange={handleSwitch}
-                    name='status'
-                    disabled={loading}
-                />
-                <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Status</label>
+            <div className='final'>
+                <div className="form-check form-switch">
+                    <input 
+                        className="form-check-input" 
+                        type="checkbox" 
+                        id="flexSwitchCheckChecked" 
+                        checked={form.status}
+                        onChange={handleSwitch}
+                        name='status'
+                        disabled={loading}
+                    />
+                    <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Status</label>
+                </div>
+                <button type='submit' onClick={handleSubmit} disabled={loading}>
+                    {isEdit ? 'Atualizar' : 'Enviar'}
+                </button>
             </div>
-            <button type='submit' onClick={handleSubmit} disabled={loading}>
-                {isEdit ? 'Atualizar' : 'Enviar'}
-            </button>
 
         </Content>
     )
@@ -136,7 +142,7 @@ const Content = styled.div`
         font-size: .9rem;
         padding: 0 6px;
         margin: 12px auto;
-        width: 84%;
+        width: 100%;
         height: 40px;
         border-bottom: 2px solid ${(props) => props.theme.colors.secondary};
 
@@ -145,18 +151,41 @@ const Content = styled.div`
         }
     }
 
+    p {
+        margin-bottom: 0;
+    }
+
+    .input-foto {
+        padding: 0;
+        border-bottom: none;
+        height: auto;
+        margin-top: 0 !important;
+    }
+
     textarea {
         background-color: ${(props) => props.theme.colors.offwhite};
         display: block;
         font-size: .9rem;
         padding: 0 6px;
         margin: 12px auto;
-        width: 84%;
+        width: 100%;
         height: 80px;
         border-bottom: 2px solid ${(props) => props.theme.colors.secondary};
 
         ::placeholder {
             color: ${(props) => props.theme.colors.gray};
         }
+    }
+
+    .form-check {
+        display: flex;
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center;
+    }
+
+    .final {
+        display: flex;
+        flex-direction: column;
     }
 `

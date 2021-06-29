@@ -60,9 +60,9 @@ const Categoria = () => {
     }
 
     const actions = () => (
-        <_button onClick={() => toggleModal(1, null)}>
+        <_Button onClick={() => toggleModal(1, null)}>
             Criar nova categoria
-        </_button>
+        </_Button>
     )
 
 
@@ -79,7 +79,7 @@ const Categoria = () => {
 
             <div>
                 <Modal isOpen={modal.status || false} toggle={closeModal}>
-                    <ModalHeader toggle={closeModal}>Categoria</ModalHeader>
+                    <_ModalHeader toggle={closeModal}>Categoria</_ModalHeader>
                     <ModalBody>
                         <FormCategory submit={submitForm} />
                     </ModalBody>
@@ -94,9 +94,32 @@ export default Categoria
 
 
 const Box = styled.div`
-    padding: 40px;
+    padding: 60px;
+    min-width: 60vw;
+
+    .control {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 5px;
+        margin-bottom: 30px;
+        /* border-bottom: thin solid ${(props) => props.theme.colors.offgray}; */
+    }
 `
 
-const _button = styled.button`
-    background-color: #f88;
+const _Button = styled.button`
+    background-color: ${(props) => props.theme.colors.primary};
+    padding: .6rem .6rem;
+    color: ${(props) => props.theme.colors.offwhite};
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: .1rem;
+    cursor: pointer;
+`
+
+
+const _ModalHeader = styled(ModalHeader)`
+    span {
+        padding: 5px 8px;
+        background-color: ${(props) => props.theme.colors.secondary}
+    }
 `

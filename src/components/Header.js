@@ -24,6 +24,11 @@ import { logoutAction } from '../store/auth/auth.action'
 const Header = (props) => {
     const dispatch = useDispatch()
     const nomeUsuario = useSelector((state) => state.auth.user.nome)
+    const tipoUsuario = useSelector((state) => state.auth.user.tipoUsuario)
+
+    function isCliente() {
+        return tipoUsuario >= 3
+    }
 
     const logout = () => {
         dispatch(logoutAction())
@@ -62,7 +67,10 @@ const Header = (props) => {
                                     {nomeUsuario}
                                 </DropdownToggle>
                                 <DropdownMenu>
-                                    <DropdownItem active onClick={logout}>Sair</DropdownItem>
+                                    {tipoUsuario < 3 ? (
+                                        <DropdownItem tag={Link} to="dash/categoria">Dashboard</DropdownItem>
+                                    ) : ''}
+                                    <DropdownItem onClick={logout}>Sair</DropdownItem>
                                 </DropdownMenu>
                             </_UncontrolledDropdown>
                         }

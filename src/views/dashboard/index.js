@@ -18,11 +18,11 @@ export const Menu = [
     {
         title: 'Fornecedores',
         icon: '',
-        route: '/',
+        route: '/fornecedor',
         visibleMenu: true,
         enabled: true,
         component: Fornecedor,
-        authorization: [1, 2]
+        authorization: [1]
     },
     {
         title: 'Categorias',
@@ -31,7 +31,7 @@ export const Menu = [
         visibleMenu: true,
         enabled: true,
         component: Categoria,
-        authorization: [1]
+        authorization: [1, 2]
     },
     {
         title: 'Produtos',

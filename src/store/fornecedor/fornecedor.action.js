@@ -19,7 +19,7 @@ export const create = (data) => {
     return async (dispatch) => {
         try {
             const result = await fornecedorCreate(data)
-            toastr.success('Fornecedor', 'Fornecedor cadastrado com sucesso')
+            toastr.success('Cadastro Realizado', 'Um email será enviado quando o seu cadastro for confirmado pela nossa equipe')
             navigate('/signin')
         } catch (error) {
             toastr.error('Fornecedor', 'Erro ao cadastrar fornecedor')
@@ -111,7 +111,7 @@ export const setStatusFornecedor = (id, ativo) => {
     return async (dispatch, getState) => {
         let result
         try {
-            if (ativo) {
+            if (ativo === 'Ativo') {
                 result = await inativaFornecedor(id)
                 toastr.success(
                     `Fornecedor ${result.data.data.nomeFantasia}`,
