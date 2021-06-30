@@ -67,7 +67,7 @@ export const getAll = () => {
             
             dispatch({ type: TYPES.CATEGORY_ALL, data: result.data.data })
         } catch (error) {
-            toastr.error('aconteceu um erro', error)
+            toastr.error('aconteceu um erro ao listar categorias', error)
         }
     }
 }

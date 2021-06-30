@@ -14,6 +14,7 @@ import {
 import { getAll as getAllCategories } from '../../store/categoria/categoria.action'
 import FormProduto from '../../components/FormProduto'
 import ProdutoTable from '../../components/ProdutoTable'
+import { obterProduto } from '../../store/fornecedor/fornecedor.action'
 
 // --------------------------------------------------------------------------
 
@@ -23,11 +24,20 @@ const Produto = () => {
     const [modalForm, setModalForm] = React.useState(false)
     const [modal, setModal] = React.useState({})
     const tipoUsuario = useSelector((state) => state.auth.user.tipoUsuario)
+    const idUsuario = useSelector((state) => state.auth.user.id)
     const produtos = useSelector((state) => state.produto.all)
+    const produtosDoFornecedor = useSelector((state) => state.fornecedor.produtos)
     const loading = useSelector((state) => state.categoria.loading)
     const selected = useSelector((state) => state.categoria.selected)
 
+    // console.log('PRODUTOS DESTE FORNECEDOR ' + JSON.stringify(produtosDoFornecedor));
+
+    // console.log('ID DO USUÁRIO: ' + idUsuario)
+    // const produtosDoUsuario = dispatch(obterProduto(idUsuario))
+    // console.log('PRODUTOS DO USUÁRIO: ' + produtosDoUsuario);
+
     const callStart = React.useCallback(() => {
+        dispatch(obterProduto(idUsuario))
         dispatch(getAllPodutos())
         dispatch(getAllCategories())
     }, [dispatch])
@@ -64,14 +74,14 @@ const Produto = () => {
                     <h4>Produtos</h4>
                     <div>{actions()}</div>
                 </div>
-                <ProdutoTable produtos={produtos} modal={modal} loading={loading} />
+                <ProdutoTable produtos={produtosDoFornecedor} modal={modal} loading={loading} />
             </Box>
 
             <div>
                 <Modal isOpen={modalForm} toggle={() => setModalForm(false)}>
                     <_ModalHeader toggle={() => setModalForm(false)}>Novo Produto</_ModalHeader>
                     <ModalBody>
-                        {/* <FormProduto submit={handleSubmit} /> */}
+                        <FormProduto submit={handleSubmit} />
                     </ModalBody>
                 </Modal>
             </div>
