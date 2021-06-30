@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
+import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 import styled from 'styled-components'
 
 import CategoryTable from '../../components/CategoryTable'
@@ -108,7 +108,7 @@ const Box = styled.div`
 
 const _Button = styled.button`
     background-color: ${(props) => props.theme.colors.primary};
-    padding: .6rem .6rem;
+    padding: .6rem 1rem;
     color: ${(props) => props.theme.colors.offwhite};
     text-transform: uppercase;
     font-weight: bolder;

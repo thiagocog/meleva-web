@@ -45,6 +45,7 @@ export default CategoryTable;
 
 
 const _img = styled.img`
-  max-width: 80px;
-  max-height: 80px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 `
