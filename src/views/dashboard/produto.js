@@ -25,7 +25,7 @@ const Produto = () => {
     const [modal, setModal] = React.useState({})
     const tipoUsuario = useSelector((state) => state.auth.user.tipoUsuario)
     const idUsuario = useSelector((state) => state.auth.user.id)
-    const produtos = useSelector((state) => state.produto.all)
+    // const produtos = useSelector((state) => state.produto.all)
     const produtosDoFornecedor = useSelector((state) => state.fornecedor.produtos)
     const loading = useSelector((state) => state.categoria.loading)
     const selected = useSelector((state) => state.categoria.selected)
@@ -45,6 +45,10 @@ const Produto = () => {
     React.useEffect(() => {
         callStart()
     }, [callStart])
+
+    React.useEffect(() => {
+        dispatch(obterProduto(idUsuario))
+    },[produtosDoFornecedor])
 
     function remove(produto) {
         dispatch(removeProduto(produto))

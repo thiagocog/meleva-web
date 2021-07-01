@@ -29,6 +29,7 @@ const FormProduto = ({ submit, ...props }) => {
     const handleSwitch = () => setForm({ ...form, status: !form.status })
 
     const handleSubmit = () => {
+        console.log('FORMULÁRIO A SER ENVIADO' + JSON.stringify(form));
         submit(form)
     }
 
@@ -94,6 +95,30 @@ const FormProduto = ({ submit, ...props }) => {
                 onChange={handleChange}
                 value={form.descricao || ''}
             ></textarea>
+            <input
+                type='number'
+                required
+                id='preco'
+                name='preco'
+                placeholder='Preço R$'
+                value={form.preco || ''}
+                onChange={handleChange}
+                disabled={loading}
+            />
+            <select 
+                name="categoriaid" 
+                id="categoriaid"
+                value={form.categoriaid || ''}
+                onChange={handleChange}
+            >
+                <option value="">Categoria</option>
+                {categorias?.map((categoria, i) =>(
+                    <option onChange={handleChange} key={i}value={categoria.id}>{categoria.nome}</option>
+                ))}
+            </select>
+            <button type='submit' onClick={handleSubmit} disabled={loading}>
+                    {isEdit ? 'Atualizar' : 'Enviar'}
+            </button>
         </Content>
     )
 }

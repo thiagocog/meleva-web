@@ -29,8 +29,9 @@ export const create = (data) => {
         try {
             const formData = new FormData()
             Object.keys(data).map((k) => formData.append(k, data[k]))
-            const fornecedorId = getState().auth.usuario.id
-            const result = await createProduto(fornecedorId, formData, config)
+            const fornecedorId = getState().auth.user.id
+            // const result = await createProduto(fornecedorId, formData, config)
+            const result = await createProduto(fornecedorId, data, config)
             dispatch({ type: TYPES.PRODUTO_CREATE, data: result.data })
             toastr.success('Produto', 'Produto cadastrado com sucesso')
             dispatch(getAll())
