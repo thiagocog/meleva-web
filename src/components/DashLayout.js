@@ -18,4 +18,10 @@ export default DashLayout
 const BoxDash = styled.div`
     display: flex;
     flex-direction: column;
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `

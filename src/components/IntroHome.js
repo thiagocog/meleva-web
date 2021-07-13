@@ -40,5 +40,5 @@ const Banner = styled.div`
     border-radius: 8px;
     background-image: url('/images/bannerhome.jpg');
     background-position: center;
-    background-size: cover; 
+    background-size: cover;
 `

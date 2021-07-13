@@ -25,8 +25,10 @@ export const signInAction = (data) => {
                 })
                 if (result.data.data.usuarioDTO.tipoUsuario === 3) {
                     navigate('/')
+                } else if (result.data.data.usuarioDTO.tipoUsuario === 2) {
+                    navigate('/dash/produto')
                 } else {
-                    navigate('/dash')
+                    navigate('/dash/categoria')
                 }
             })
             .catch((error) => {

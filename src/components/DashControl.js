@@ -32,13 +32,18 @@ const DashControl = ({ children }) => {
     return (
         <LayoutDashControl>
             <DashHeader className={navClosed && 'nav-close'}>
-                <div className="header-button" onClick={toggleNav}>
-                    {navClosed ? 
+                <div className="header-button">
+                    {/* {navClosed ? 
                         <CgChevronDoubleRight /> : 
                         <CgChevronDoubleLeft /> 
-                    }
-                    <span>Dashboard</span>
+                    } */}
+                    <span>Painel de Controle</span>
                 </div>
+                <ul>
+                    <li><_NavLink tag={Link} to='/dash/categoria'>Categorias</_NavLink></li>
+                    <li><_NavLink tag={Link} to='/dash/fornecedor'>Fornecedores</_NavLink></li>
+                    <li><_NavLink tag={Link} to='/dash/produto'>Produtos</_NavLink></li>
+                </ul>
                 <_UncontrolledDropdown setActiveFromChild>
                     <DropdownToggle tag="a" className="nav-link" caret>
                         {nomeUsuario}
@@ -49,14 +54,14 @@ const DashControl = ({ children }) => {
                     </DropdownMenu>
                 </_UncontrolledDropdown>
             </DashHeader>
-            <Nav className={navClosed && 'nav-close'}>
+            {/* <Nav className={navClosed && 'nav-close'}>
                 <ul>
                     <li><_NavLink tag={Link} to='/dash/categoria'>Categorias</_NavLink></li>
                     <li><_NavLink tag={Link} to='/dash/fornecedor'>Fornecedores</_NavLink></li>
                     <li><_NavLink tag={Link} to='/dash/produto'>Produtos</_NavLink></li>
                 </ul>
-            </Nav>
-            <ChildrenDash className={navClosed && 'nav-close'}>{children}</ChildrenDash>
+            </Nav> */}
+            <ChildrenDash className={navClosed && 'nav-close', 'container-fluid'}>{children}</ChildrenDash>
         </LayoutDashControl>
     )
 }
@@ -78,32 +83,41 @@ const LayoutDashControl = styled.div`
 `
 
 const DashHeader = styled.header`
-    margin-left: 16vw;
+    /* margin-left: 16vw; */
     height: 10vh;
-    width: 84vw;
+    width: 100vw;
     background-color: ${(props) => props.theme.colors.secondary};
-    transition: 0.5s;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: 20px;
+    padding: 0 4rem;
 
-    .header-button {
+    /* .header-button {
         cursor: pointer;
         color: ${(props) => props.theme.colors.offblack};
-        font-size: 1.5rem;
+        font-size: 1.5rem; */
 
         span {
             font-family: Arial, Helvetica, sans-serif;
             font-weight: bolder;
-            font-size: 1.2rem;
-        }
-    }
+            font-size: 1.5rem;
+            color: ${(props) => props.theme.colors.primary};
 
-    &.nav-close {
+        }
+    /* } */
+
+    /* &.nav-close {
         width: 100vw;
         margin-left: 4vw;
 
+    } */
+
+    ul {
+        display: flex;
+
+        li {
+            padding: 10px;
+        }
     }
 `
 
@@ -131,13 +145,13 @@ const Nav = styled.div`
 
 const ChildrenDash = styled.div`
     min-height: 90vh;
-    margin-left: 16vw;
-    transition: 0.5s;
+    /* margin-left: 16vw; */
+    /* transition: 0.5s; */
 
-    &.nav-close {
+    /* &.nav-close {
         margin-left: 4vw;
 
-    }
+    } */
 `
 
 const _NavLink = styled(NavLink)`
@@ -145,19 +159,27 @@ const _NavLink = styled(NavLink)`
     font-size: 1rem;
     letter-spacing: 0.02rem;
     font-weight: bolder;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid transparent;
-    border-top: 2px solid transparent;
-    padding: .1rem .05rem !important;
+    border: 2px solid ${(props) => props.theme.colors.gray};
+    border-radius: 8px;
+    padding: .4rem !important;
     display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
 
     :hover {
-        border-bottom-color: ${(props) => props.theme.colors.gray};
+        box-shadow: inset 0 0 2px ${(props) => props.theme.colors.gray};
     }
 `
 
 const _UncontrolledDropdown = styled(UncontrolledDropdown)`
     margin-left: 40px;
     cursor: pointer;
+
+    .nav-link {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 0.02rem;
+        /* color: ${(props) => props.theme.colors.primary}; */
+        color: ${(props) => props.theme.colors.gray}
+    }
 `

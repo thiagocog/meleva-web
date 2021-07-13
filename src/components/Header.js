@@ -68,7 +68,7 @@ const Header = (props) => {
                                 </DropdownToggle>
                                 <DropdownMenu>
                                     {tipoUsuario < 3 ? (
-                                        <DropdownItem tag={Link} to="dash/categoria">Dashboard</DropdownItem>
+                                        <DropdownItem tag={Link} to="dash/categoria">Painel de Controle</DropdownItem>
                                     ) : ''}
                                     <DropdownItem onClick={logout}>Sair</DropdownItem>
                                 </DropdownMenu>
@@ -91,6 +91,7 @@ export default Header
 const _Header = styled.header`
     height: auto;
     background-color: #F2F2F2;
+    z-index: 9999;
 `
 
 const _Navbar = styled(Navbar)`
@@ -147,4 +148,10 @@ const _NavLink = styled(NavLink)`
 const _UncontrolledDropdown = styled(UncontrolledDropdown)`
     margin-left: 40px;
     cursor: pointer;
+
+    .nav-link {
+        color: tomato !important;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
 `

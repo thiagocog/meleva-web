@@ -4,6 +4,9 @@ import styled from 'styled-components'
 
 
 const ProdutoTable = ({ produtos, modal, loading, ...props }) => {
+
+    console.log('PRODUTOS: ', produtos)
+
     return (
         <Table>
             <thead>
@@ -11,6 +14,7 @@ const ProdutoTable = ({ produtos, modal, loading, ...props }) => {
                     <th>Nome</th>
                     <th>Preço</th>
                     <th>Descrição</th>
+                    <th>Categoria</th>
                     <th>Imagem</th>
                 </tr>
             </thead>
@@ -21,6 +25,7 @@ const ProdutoTable = ({ produtos, modal, loading, ...props }) => {
                     <td>{produto.nome}</td>
                     <td>{produto.preco}</td>
                     <td>{produto.descricao}</td>
+                    <td>{produto.categoriaName}</td>
                     <td><_img src={process.env.REACT_APP_API + produto.imagem} /></td>
                 </tr>
                 ))}

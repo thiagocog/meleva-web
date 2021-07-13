@@ -48,7 +48,8 @@ const Fornecedor = () => {
 
 
     return (
-        <Box>
+        <Box className="container">
+            <h4>Lista de Fornecedores</h4>
             <FornecedorTable fornecedores={fornecedores} toggleActive={toggleActive} loading={loading} />
         </Box>
     )
@@ -60,5 +61,21 @@ export default Fornecedor
 
 
 const Box = styled.div`
-    padding: 40px;
+    margin-top: 60px;
+
+    h4 {
+        font-family: arial,sans-serif;
+        font-size: 2rem;
+    }
+
+    h4::after {
+        content: '';
+        display: block;
+        background-color: ${(props) => props.theme.colors.offblack};
+        width: 2rem;
+        height: 2px;
+        margin-top: .1rem;
+        margin-bottom: 3rem;
+        border-radius: 20px;
+    }
 `

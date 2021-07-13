@@ -61,14 +61,15 @@ const FormProduto = ({ submit, ...props }) => {
                 </div>
             ) : (
                 <>
-                <p>Upload Foto</p>
+                    <label htmlFor="imagem">Insira uma Imagem</label>
                 
                     {/* Upload Foto */}
                     <input
-                        // accept='image/*'
+                        accept='image/*'
                         className="input-foto"
                         type='file'
                         name='imagem'
+                        id="imagem"
                         // hidden
                         onChange={previewImg}
                     />
@@ -155,11 +156,33 @@ const Content = styled.div`
         margin-bottom: 0;
     }
 
+    label {
+        background-color: ${(props) => props.theme.colors.offwhite};
+        display: flex;
+        font-size: .9rem;
+        padding: 0 6px;
+        margin: 12px auto 20px;
+        width: 40%;
+        height: 60px;
+        cursor: pointer;
+        border: 2px solid ${(props) => props.theme.colors.secondary};
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        transition: .3s;
+
+        :hover {
+            background-color: #fff;  
+        }
+    }
+
     .input-foto {
         padding: 0;
         border-bottom: none;
         height: auto;
         margin-top: 0 !important;
+        /* width: 50px; */
+        display: none;
     }
 
     textarea {

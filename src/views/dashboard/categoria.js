@@ -102,18 +102,41 @@ const Box = styled.div`
         justify-content: space-between;
         padding-bottom: 5px;
         margin-bottom: 30px;
+        align-items: center;
         /* border-bottom: thin solid ${(props) => props.theme.colors.offgray}; */
+    }
+
+    h4 {
+        font-family: arial,sans-serif;
+        font-size: 2rem;
+    }
+
+    h4::after {
+        content: '';
+        display: block;
+        background-color: ${(props) => props.theme.colors.offblack};
+        width: 2rem;
+        height: 2px;
+        margin-top: .1rem;
+        border-radius: 20px;
     }
 `
 
 const _Button = styled.button`
-    background-color: ${(props) => props.theme.colors.primary};
     padding: .6rem 1rem;
-    color: ${(props) => props.theme.colors.offwhite};
-    text-transform: uppercase;
-    font-weight: bolder;
-    letter-spacing: .1rem;
+    /* font-weight: bolder; */
     cursor: pointer;
+    border-radius: 8px;
+    transition: .2s;
+    border: 2px solid transparent;
+    background-color: ${(props) => props.theme.colors.offwhite};
+    color: ${(props) => props.theme.colors.primary};
+    border: 2px solid ${(props) => props.theme.colors.primary};
+
+    &:hover {
+        background-color: ${(props) => props.theme.colors.primary};
+        color: ${(props) => props.theme.colors.offwhite};
+    }
 `
 
 
