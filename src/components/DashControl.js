@@ -159,14 +159,16 @@ const _NavLink = styled(NavLink)`
     font-size: 1rem;
     letter-spacing: 0.02rem;
     font-weight: bolder;
-    border: 2px solid ${(props) => props.theme.colors.gray};
-    border-radius: 8px;
-    padding: .4rem !important;
+    /* border-left: 2px solid ${(props) => props.theme.colors.gray};
+    border-right: 2px solid ${(props) => props.theme.colors.gray}; */
+    /* border-radius: 8px; */
+    padding: .1rem .4rem !important;
     display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
 
     :hover {
-        box-shadow: inset 0 0 2px ${(props) => props.theme.colors.gray};
+        color: ${(props) => props.theme.colors.offwhite} !important;
+        /* border-color: ${(props) => props.theme.colors.offwhite} */
     }
 `
 
@@ -176,7 +178,7 @@ const _UncontrolledDropdown = styled(UncontrolledDropdown)`
 
     .nav-link {
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: bold;
         letter-spacing: 0.02rem;
         /* color: ${(props) => props.theme.colors.primary}; */

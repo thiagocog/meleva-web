@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
+
 import styled from 'styled-components'
 
 import CategoryTable from '../../components/CategoryTable'
@@ -61,7 +62,7 @@ const Categoria = () => {
 
     const actions = () => (
         <_Button onClick={() => toggleModal(1, null)}>
-            Criar nova categoria
+            Nova categoria
         </_Button>
     )
 
