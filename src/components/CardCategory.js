@@ -54,5 +54,9 @@ const _CardBody = styled(CardBody)`
     border-radius: 0;
     background-color: ${(props) => props.theme.colors.primary};
     padding: .8rem 0;
+
+    &:hover {
+      filter: brightness(1.2)
+    }
   }
 `

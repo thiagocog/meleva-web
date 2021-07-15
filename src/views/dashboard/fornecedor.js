@@ -53,13 +53,16 @@ const Fornecedor = () => {
         status: false,
         data: []
     })
-    
+
     
     function openProdutos(fornecedor) {
         dispatch(obterProduto(fornecedor.id)).then(() => setModalProduto({
             status: true,
             data: produtosDoFornecedor
         }))
+
+
+        
         // console.log('PRODUTOS DO FORNECEDOR', produtosDoFornecedor);
     }
     

@@ -62,7 +62,7 @@ const Produto = () => {
 
     function actions() {
         return (
-            <_Button onClick={() => setModalForm(true)}>Novo Produto</_Button>
+            <_Button onClick={() => setModalForm(true)}>Novo</_Button>
         )
     }
 
@@ -75,7 +75,7 @@ const Produto = () => {
         <>
             <Box>
                 <div className="control">
-                    <h4>Produtos</h4>
+                    <h4>Meus produtos</h4>
                     <div>{actions()}</div>
                 </div>
                 <ProdutoTable produtos={produtosDoFornecedor} modal={modal} loading={loading} />
@@ -105,7 +105,7 @@ const Avatar = styled.img`
 
 const Box = styled.div`
     padding: 60px;
-    min-width: 60vw;
+    min-width: 80vw;
 
     .control {
         display: flex;

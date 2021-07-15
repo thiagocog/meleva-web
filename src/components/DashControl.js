@@ -18,6 +18,7 @@ const DashControl = ({ children }) => {
     const dispatch = useDispatch()
 
     const nomeUsuario = useSelector((state) => state.auth.user.nome)
+    const tipoUsuario = useSelector((state) => state.auth.user.tipoUsuario)
 
     const [navClosed, setNavClosed] = React.useState(true)
 
@@ -41,8 +42,19 @@ const DashControl = ({ children }) => {
                 </div>
                 <ul>
                     <li><_NavLink tag={Link} to='/dash/categoria'>Categorias</_NavLink></li>
-                    <li><_NavLink tag={Link} to='/dash/fornecedor'>Fornecedores</_NavLink></li>
-                    <li><_NavLink tag={Link} to='/dash/produto'>Produtos</_NavLink></li>
+                    {tipoUsuario === 1 && (
+                        <li><_NavLink tag={Link} to='/dash/fornecedor'>Fornecedores</_NavLink></li>
+                    )}
+                    {tipoUsuario === 2 && (
+                        <li><_NavLink tag={Link} to='/dash/produto'>Meus produtos</_NavLink></li>
+                    )}
+                    {tipoUsuario === 2 ? (
+                        <li><_NavLink tag={Link} to='/dash/produtotodos'>Todos os produtos</_NavLink></li>
+                    ) : (
+                        <li><_NavLink tag={Link} to='/dash/produtotodos'>Produtos</_NavLink></li>
+                    )}
+                    
+                    
                 </ul>
                 <_UncontrolledDropdown setActiveFromChild>
                     <DropdownToggle tag="a" className="nav-link" caret>
@@ -101,7 +113,7 @@ const DashHeader = styled.header`
             font-family: Arial, Helvetica, sans-serif;
             font-weight: bolder;
             font-size: 1.5rem;
-            color: ${(props) => props.theme.colors.primary};
+            color: ${(props) => props.theme.colors.gray};
 
         }
     /* } */

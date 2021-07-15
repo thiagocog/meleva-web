@@ -28,7 +28,7 @@ export const signInAction = (data) => {
                 } else if (result.data.data.usuarioDTO.tipoUsuario === 2) {
                     navigate('/dash/produto')
                 } else {
-                    navigate('/dash/categoria')
+                    navigate('/dash/fornecedor')
                 }
             })
             .catch((error) => {

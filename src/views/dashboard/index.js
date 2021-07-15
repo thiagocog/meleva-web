@@ -7,6 +7,7 @@ import DashLayout from '../../components/DashLayout'
 import Fornecedor from './fornecedor'
 import Categoria from './categoria'
 import Produto from './produto'
+import ProdutoTodos from './produtotodos'
 // import Cliente from './cliente/'
 
 
@@ -40,6 +41,15 @@ export const Menu = [
         visibleMenu: true,
         enabled: true,
         component: Produto,
+        authorization: [1, 2]
+    },
+    {
+        title: 'Todos os Produtos',
+        icon: '',
+        route: '/produtotodos',
+        visibleMenu: true,
+        enabled: true,
+        component: ProdutoTodos,
         authorization: [1, 2]
     },
     {
